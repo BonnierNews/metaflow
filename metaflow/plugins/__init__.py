@@ -19,6 +19,7 @@ from .environment_decorator import EnvironmentDecorator
 from .retry_decorator import RetryDecorator
 from .aws.batch.batch_decorator import BatchDecorator, ResourcesDecorator
 from .conda.conda_step_decorator import CondaStepDecorator
+from .pipenv.pipenv_step_decorator import PipenvStepDecorator
 
 STEP_DECORATORS = [CatchDecorator,
                    TimeoutDecorator,
@@ -26,11 +27,13 @@ STEP_DECORATORS = [CatchDecorator,
                    ResourcesDecorator,
                    RetryDecorator,
                    BatchDecorator,
-                   CondaStepDecorator]
+                   CondaStepDecorator,
+                   PipenvStepDecorator]
 
 # Add Conda environment
 from .conda.conda_environment import CondaEnvironment
-ENVIRONMENTS = [CondaEnvironment]
+from .pipenv.pipenv_environment import PipenvEnvironment
+ENVIRONMENTS = [CondaEnvironment, PipenvEnvironment]
 
 
 # Every entry in this list becomes a class-level flow decorator.
